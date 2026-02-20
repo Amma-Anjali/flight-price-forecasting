@@ -11,6 +11,7 @@ This project predicts flight ticket prices using machine learning and provides a
 flight-price-forecasting/
 │
 ├── app/
+|   └── flight_price.xlsx
 │   └── flight_price_app.py
 │
 ├── notebooks/
