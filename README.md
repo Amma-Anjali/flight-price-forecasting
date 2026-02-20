@@ -1,32 +1,32 @@
-# ✈️ Flight Price Forecasting
+# Flight Price Forecasting
 
-## 📌 Overview
-This project predicts flight prices using machine learning and provides a simple Streamlit web app for interactive predictions.
+## Overview
+This project predicts flight ticket prices using machine learning and provides an interactive web application built with Streamlit.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 flight-price-forecasting/
 │
-├── app/                     # Streamlit app code
+├── app/
 │   └── flight_price_app.py
 │
-├── notebooks/               # Jupyter notebooks
+├── notebooks/
 │   └── flight_price_forecasting_model.ipynb
-
+│
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🚀 Features
+## Features
 
-- Train machine learning models to predict flight ticket prices
-- Simple and interactive web app using Streamlit
-- Organized structure for datasets, notebooks, and application code
+- Machine learning model for flight price prediction  
+- Interactive web interface using Streamlit  
+- Clean and organized project structure  
 
 ---
 
@@ -39,13 +39,11 @@ git clone https://github.com/Amma-Anjali/flight-price-forecasting.git
 cd flight-price-forecasting
 ```
 
-### 2️ Install dependencies
+### 2️ Install required libraries
 
-```bash
-pip install -r requirements.txt
-```
+Install the necessary Python libraries manually (e.g., pandas, numpy, scikit-learn, streamlit).
 
-### 3️ Run the Streamlit app
+### 3️ Run the Streamlit application
 
 ```bash
 streamlit run app/flight_price_app.py
@@ -55,4 +53,4 @@ streamlit run app/flight_price_app.py
 
 ## License
 
-This project is open-source and free to use for learning purposes.
+This project is created for educational and portfolio purposes.
