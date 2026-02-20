@@ -1,6 +1,4 @@
-# =====================================================
-# ✈️ Professional Flight Price Prediction App
-# =====================================================
+# Flight Price Prediction App
 
 import streamlit as st
 import pandas as pd
@@ -14,26 +12,21 @@ st.set_page_config(page_title="Flight Price Predictor", layout="wide")
 st.title("✈️ Smart Flight Price Prediction System")
 st.write("Enter flight details below to estimate ticket price.")
 
-# -----------------------------------------------------
 # Load Dataset
-# -----------------------------------------------------
-
 @st.cache_data
 def load_data():
     return pd.read_excel("flight_price.xlsx")
 
 df = load_data()
 
-# -----------------------------------------------------
-# Feature Engineering (SAFE VERSION)
-# -----------------------------------------------------
+# Feature Engineering 
 
 df["Journey_day"] = pd.to_datetime(df["Date_of_Journey"], dayfirst=True).dt.day
 df["Journey_month"] = pd.to_datetime(df["Date_of_Journey"], dayfirst=True).dt.month
 df["Dep_hour"] = pd.to_datetime(df["Dep_Time"]).dt.hour
 df["Arrival_hour"] = pd.to_datetime(df["Arrival_Time"]).dt.hour
 
-# SAFE duration conversion (NO eval)
+# SAFE duration conversion
 def convert_duration(x):
     x = str(x)
     hours = 0
@@ -60,9 +53,7 @@ df.dropna(inplace=True)
 
 df = pd.get_dummies(df, drop_first=True)
 
-# -----------------------------------------------------
 # Model Training
-# -----------------------------------------------------
 
 X = df.drop("Price", axis=1)
 y = df["Price"]
@@ -74,9 +65,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = RandomForestRegressor(n_estimators=300, random_state=42)
 model.fit(X_train, y_train)
 
-# -----------------------------------------------------
 # USER INPUT SECTION
-# -----------------------------------------------------
 
 st.subheader("📝 Enter Flight Details")
 
@@ -105,9 +94,7 @@ with col2:
         ["non-stop", "1 stop", "2 stops", "3 stops"]
     )
 
-# -----------------------------------------------------
 # PREDICTION
-# -----------------------------------------------------
 
 if st.button("Predict Flight Price 💰"):
 
@@ -160,7 +147,6 @@ if st.button("Predict Flight Price 💰"):
         if destination in col:
             input_df[col] = 1
 
-    # IMPORTANT: Match training feature order
     input_df = input_df[X.columns]
 
     # Predict
