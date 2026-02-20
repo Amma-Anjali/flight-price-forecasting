@@ -15,9 +15,7 @@ flight-price-forecasting/
 │
 ├── notebooks/               # Jupyter notebooks
 │   └── flight_price_forecasting_model.ipynb
-│
-├── model/                   # Trained ML model (not uploaded)
-├── requirements.txt         # Python dependencies
+
 ├── .gitignore
 └── README.md
 ```
